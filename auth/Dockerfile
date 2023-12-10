@@ -1,8 +1,10 @@
 FROM node:alpine
-
+ 
 WORKDIR /app
 COPY package.json .
-RUN npm install
-COPY . .
+RUN npm install --omit=dev
+# RUN npm install --omit=dev
 
+COPY . .
+ 
 CMD ["npm", "start"]
